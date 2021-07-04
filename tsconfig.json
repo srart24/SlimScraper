@@ -4,11 +4,7 @@
         "module": "CommonJS",
         "declaration": true,
         "declarationDir": "build/typings",
-        "outDir": "build",
-        "baseUrl": "./src/",
-        "paths": {
-            "@lib/*": ["lib/*"]
-        }
+        "outDir": "build"
     },
     "include": [
         "src"

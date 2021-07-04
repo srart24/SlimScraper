@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { typesShortLinks } from '@lib/interface'
+import { typesShortLinks } from '../lib/interface'
 
 async function shortlinks(url: string, types?: typesShortLinks) {
     switch(types) {
