@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "CommonJS",
+        "declaration": true,
+        "declarationDir": "build/typings",
+        "outDir": "build",
+        "baseUrl": "./src/",
+        "paths": {
+            "@helper/*": ["helper/*"],
+            "@root": ["*"]
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

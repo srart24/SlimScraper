@@ -1,0 +1,37 @@
+{
+  "name": "simplegrabber",
+  "version": "0.0.1",
+  "description": "Simple Grabber",
+  "main": "build/index.js",
+  "types": "build/typings/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "build": "tsc && tsc-alias"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lendev0406/SimpleGrabber.git"
+  },
+  "keywords": [
+    "grabber",
+    "SimpleGrabber",
+    "simple grabber",
+    "scraper"
+  ],
+  "author": "LenDev0406",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lendev0406/SimpleGrabber/issues"
+  },
+  "homepage": "https://github.com/lendev0406/SimpleGrabber#readme",
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "tsc-alias": "^1.3.7",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10"
+  }
+}
