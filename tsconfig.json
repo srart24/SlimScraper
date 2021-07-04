@@ -7,8 +7,7 @@
         "outDir": "build",
         "baseUrl": "./src/",
         "paths": {
-            "@helper/*": ["helper/*"],
-            "@root": ["*"]
+            "@lib/*": ["lib/*"]
         }
     },
     "include": [

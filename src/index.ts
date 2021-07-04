@@ -1,5 +1,7 @@
 import axios from "axios"
 import cheerio from 'cheerio'
+import { extraOptions } from '@lib/interface'
+import { shortlinks } from '@lib/helper'
 
 class Imdb {
     /**
@@ -7,9 +9,10 @@ class Imdb {
      * @param pages total page results
      * @returns {string[]} List film
      */
-    async getTopRatedMovies(pages?:number) {
+    async getTopRatedMovies(options: extraOptions) {
+        let { pages, shortUrl, shortUrlName } = options
         if (!pages) {
-            pages = 150
+            pages = 30
         }
         const html = await axios.get('https://www.imdb.com/chart/top/')
         const $ = cheerio.load(html.data)
@@ -36,9 +39,10 @@ class Imdb {
             pages = title.length
         }
         for (let i = 0; i < pages; i++) {
+            const thumbsUrl = shortUrl ? await shortlinks(thumbs[i].src, shortUrlName) : thumbs[i].src
             const obj = { 
                 title: title[i],
-                thumbnails: thumbs[i].src,
+                thumbnails: thumbsUrl,
                 ratings: ratings[i].data,
                 releaseDates: releaseDates[i].data.replace('(', '').replace(')', ''),
             }
