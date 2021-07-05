@@ -7,6 +7,13 @@ interface searchOptions {
     shortUrl?: boolean
 }
 
+interface results {
+    title: string,
+    posterUrl: string,
+    ratings: string,
+    releaseYears: string
+}
+
 class Imdb {
     /**
      * Search movie details by title
@@ -18,7 +25,7 @@ class Imdb {
         const { shortUrl } = extraOptions
         const html = await axios.get(`https://www.imdb.com/search/title/?title=${title}&title_type=movie`)
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const judul = []
         $('div.lister-item.mode-advanced > div:nth-child(3) > h3 > a').get().map(rest => {
             judul.push(rest.children[0])
@@ -93,7 +100,7 @@ class Imdb {
         }
         const html = await axios.get('https://www.imdb.com/chart/top/')
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const title = []
         const thumbs = []
         const ratings = []
@@ -140,7 +147,7 @@ class Imdb {
         }
         const html = await axios.get('https://www.imdb.com/chart/moviemeter')
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const title = []
         const thumbs = []
         const ratings = []
@@ -187,7 +194,7 @@ class Imdb {
         }
         const html = await axios.get('https://www.imdb.com/chart/bottom')
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const title = []
         const thumbs = []
         const ratings = []
@@ -234,7 +241,7 @@ class Imdb {
         }
         const html = await axios.get('https://www.imdb.com/chart/tvmeter')
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const title = []
         const thumbs = []
         const ratings = []
@@ -281,7 +288,7 @@ class Imdb {
         }
         const html = await axios.get('https://www.imdb.com/chart/toptv')
         const $ = cheerio.load(html.data)
-        const results = []
+        const results: results[] = []
         const title = []
         const thumbs = []
         const ratings = []
