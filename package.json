@@ -1,6 +1,6 @@
 {
   "name": "simplegrabber",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple Grabber",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
@@ -27,10 +27,8 @@
   "homepage": "https://github.com/lendev0406/SimpleGrabber#readme",
   "devDependencies": {
     "@types/node": "^16.0.0",
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
     "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "typescript": "^4.3.5"
   }
 }
