@@ -8,6 +8,12 @@ interface searchOptions {
 }
 
 class Imdb {
+    /**
+     * Search movie details by title
+     * @param title 
+     * @param extraOptions 
+     * @returns List movie or film
+     */
     async searchMovieDetails(title: string, extraOptions?: searchOptions) {
         const { shortUrl } = extraOptions
         const html = await axios.get(`https://www.imdb.com/search/title/?title=${title}&title_type=movie`)
@@ -63,7 +69,7 @@ class Imdb {
                 rating += 'Unknown'
             }
             const obj = {
-                titles: judul[i].data,
+                title: judul[i].data,
                 posterUrl: shortUrl ? poster[i].src : shortlinks(poster[i].src),
                 releaseYears: releaseTahun,
                 genre: genres,
@@ -74,6 +80,7 @@ class Imdb {
         }
         return results
     }
+
     /**
      * Get top rated movies
      * @param pages total page results
@@ -115,6 +122,147 @@ class Imdb {
                 posterUrl: thumbsUrl,
                 ratings: ratings[i].data,
                 releaseYears: releaseDates[i].data.replace('(', '').replace(')', ''),
+            }
+            results.push(obj)
+        }
+        return results
+    }
+
+    /**
+     * Get popular movies
+     * @param options 
+     * @returns List popular movies / film
+     */
+    async getPopularMovies(options: extraOptions) {
+        let { pages, shortUrl, shortUrlName } = options
+        if (!pages) {
+            pages = 30
+        }
+        const html = await axios.get('https://www.imdb.com/chart/moviemeter')
+        const $ = cheerio.load(html.data)
+        const results = []
+        const title = []
+        const thumbs = []
+        const ratings = []
+        const releaseDates = []
+        $('td.titleColumn > a').get().map(rest => {
+            title.push(rest.attribs.title)
+        })
+        $('td.titleColumn > span').get().map(rest => {
+            releaseDates.push(rest.children[0])
+        })
+        $('td.ratingColumn.imdbRating > strong').get().map(rest => {
+            ratings.push(rest.children[0])
+        })
+        $('td.posterColumn > a > img').get().map(rest => {
+            thumbs.push(rest.attribs)
+        })
+        if (pages >= title.length) {
+            pages = title.length
+        } else if (title.length < pages) {
+            pages = title.length
+        }
+        for (let i = 0; i < pages; i++) {
+            const thumbsUrl = shortUrl ? await shortlinks(thumbs[i].src, shortUrlName) : thumbs[i].src
+            const obj = { 
+                title: title[i],
+                posterUrl: thumbsUrl,
+                ratings: ratings[i].data,
+                releaseYears: releaseDates[i].data.match(/([0-9])/gi).join(''),
+            }
+            results.push(obj)
+        }
+        return results
+    }
+
+    /**
+     * Get lowest rated movies
+     * @param options 
+     * @returns List film / movies
+     */
+    async getLowestRatedMovies(options: extraOptions) {
+        let { pages, shortUrl, shortUrlName } = options
+        if (!pages) {
+            pages = 30
+        }
+        const html = await axios.get('https://www.imdb.com/chart/bottom')
+        const $ = cheerio.load(html.data)
+        const results = []
+        const title = []
+        const thumbs = []
+        const ratings = []
+        const releaseDates = []
+        $('td.titleColumn > a').get().map(rest => {
+            title.push(rest.attribs.title)
+        })
+        $('td.titleColumn > span').get().map(rest => {
+            releaseDates.push(rest.children[0])
+        })
+        $('td.ratingColumn.imdbRating > strong').get().map(rest => {
+            ratings.push(rest.children[0])
+        })
+        $('td.posterColumn > a > img').get().map(rest => {
+            thumbs.push(rest.attribs)
+        })
+        if (pages >= title.length) {
+            pages = title.length
+        } else if (title.length < pages) {
+            pages = title.length
+        }
+        for (let i = 0; i < pages; i++) {
+            const thumbsUrl = shortUrl ? await shortlinks(thumbs[i].src, shortUrlName) : thumbs[i].src
+            const obj = { 
+                title: title[i],
+                posterUrl: thumbsUrl,
+                ratings: ratings[i].data,
+                releaseYears: releaseDates[i].data.match(/([0-9])/gi).join(''),
+            }
+            results.push(obj)
+        }
+        return results
+    }
+
+    /**
+     * Get most populer tv shows
+     * @param options
+     * @returns List popular shows
+     */
+    async getPopularTvShows(options: extraOptions) {
+        let { pages, shortUrl, shortUrlName } = options
+        if (!pages) {
+            pages = 30
+        }
+        const html = await axios.get('https://www.imdb.com/chart/tvmeter')
+        const $ = cheerio.load(html.data)
+        const results = []
+        const title = []
+        const thumbs = []
+        const ratings = []
+        const releaseDates = []
+        $('td.titleColumn > a').get().map(rest => {
+            title.push(rest.attribs.title)
+        })
+        $('td.titleColumn > span').get().map(rest => {
+            releaseDates.push(rest.children[0])
+        })
+        $('td.ratingColumn.imdbRating > strong').get().map(rest => {
+            ratings.push(rest.children[0])
+        })
+        $('td.posterColumn > a > img').get().map(rest => {
+            thumbs.push(rest.attribs)
+        })
+        if (pages >= title.length) {
+            pages = title.length
+        } else if (title.length < pages) {
+            pages = title.length
+        }
+        for (let i = 0; i < pages; i++) {
+            const thumbsUrl = shortUrl ? await shortlinks(thumbs[i].src, shortUrlName) : thumbs[i].src
+            const obj = { 
+                title: title[i],
+                posterUrl: thumbsUrl,
+                ratings: ratings[i].data,
+                releaseYears: releaseDates[i].data.match(/([0-9])/gi).join(''),
             }
             results.push(obj)
         }
