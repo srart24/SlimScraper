@@ -268,6 +268,12 @@ class Imdb {
         }
         return results
     }
+
+    /**
+     * Get top rated tv shows
+     * @param options 
+     * @returns List top rated tv shows
+     */
     async getTopRatedTvShows(options?: extraOptions) {
         let { pages, shortUrl, shortUrlName } = options
         if (!pages) {
