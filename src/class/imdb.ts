@@ -112,7 +112,7 @@ class Imdb {
             const thumbsUrl = shortUrl ? await shortlinks(thumbs[i].src, shortUrlName) : thumbs[i].src
             const obj = { 
                 title: title[i],
-                thumbnails: thumbsUrl,
+                posterUrl: thumbsUrl,
                 ratings: ratings[i].data,
                 releaseYears: releaseDates[i].data.replace('(', '').replace(')', ''),
             }
