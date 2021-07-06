@@ -1,6 +1,6 @@
 {
   "name": "slim-grabber",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Slim Grabber are new SimpleGrabber",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
