@@ -1,6 +1,6 @@
 {
-  "name": "simplegrabber",
-  "version": "0.0.5",
+  "name": "simple-grabber",
+  "version": "0.0.1",
   "description": "Simple Grabber",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
