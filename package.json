@@ -1,7 +1,7 @@
 {
   "name": "slim-scraper",
   "version": "0.0.1",
-  "description": "Simple Scraper",
+  "description": "Slim Scraper",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
   "scripts": {
@@ -11,21 +11,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lendev0406/SimpleGrabber.git"
+    "url": "git+https://github.com/lendev0406/SlimScraper.git"
   },
   "keywords": [
     "grabber",
     "grabbers",
     "simple-grabber",
     "SimpleGrabber",
-    "SimplesGrabbers"
+    "SimplesGrabbers",
+    "SlimScraper"
   ],
   "author": "LenDev0406",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lendev0406/SimpleScraper/issues"
+    "url": "https://github.com/lendev0406/SlimScraper/issues"
   },
-  "homepage": "https://github.com/lendev0406/SimpleScraper#readme",
+  "homepage": "https://github.com/lendev0406/SlimScraper#readme",
   "devDependencies": {
     "@types/node": "^16.0.0",
     "typescript": "^4.3.5"
