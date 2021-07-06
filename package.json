@@ -1,7 +1,7 @@
 {
-  "name": "simple-grabber",
+  "name": "slim-grabber",
   "version": "0.0.1",
-  "description": "Simple Grabber",
+  "description": "Slim Grabber are new SimpleGrabber",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
   "scripts": {
@@ -11,24 +11,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lendev0406/SimpleGrabber.git"
+    "url": "git+https://github.com/lendev0406/SlimGrabber.git"
   },
   "keywords": [
     "grabber",
+    "grabbers",
+    "simple-grabber",
     "SimpleGrabber",
-    "simple grabber",
-    "scraper"
+    "SimplesGrabbers"
   ],
   "author": "LenDev0406",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lendev0406/SimpleGrabber/issues"
+    "url": "https://github.com/lendev0406/SlimGrabber/issues"
   },
-  "homepage": "https://github.com/lendev0406/SimpleGrabber#readme",
+  "homepage": "https://github.com/lendev0406/SlimGrabber#readme",
   "devDependencies": {
     "@types/node": "^16.0.0",
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.10",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10"
   }
 }
