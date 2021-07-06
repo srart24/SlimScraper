@@ -1,7 +1,7 @@
 {
-  "name": "simple-scraper",
+  "name": "slim-scraper",
   "version": "0.0.1",
-  "description": "SimpleGrabber",
+  "description": "Simple Scraper",
   "main": "build/index.js",
   "types": "build/typings/index.d.ts",
   "scripts": {
