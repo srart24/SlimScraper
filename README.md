@@ -4,8 +4,8 @@
 
 # Slim Scraper
 
-```md
-Apa sih itu **Slim Scraper**, Pada basisnya Slim Scraper adalah seperti modules Scraper pada umumnya tapi ini bukan alat untuk ngescrape ya, melainkan modules yang sudah jadi dimana isinya ada beberapa banyak fitur.
+```txt
+Apa sih itu Slim Scraper, Pada basisnya Slim Scraper adalah seperti modules Scraper pada umumnya tapi ini bukan alat untuk ngescrape ya, melainkan modules yang sudah jadi dimana isinya ada beberapa banyak fitur.
 mohon maaf atas deskripsi saya yang berantakan.
 ```
 
